@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classroom Booking Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #eef2f7;
+      font-family: 'Arial', sans-serif;
+    }
+    .booking-form {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+    }
+    .booking-form h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #007bff;
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+    .form-control, .form-select {
+      border-radius: 5px;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="booking-form">
+    <h2>Classroom Booking Form</h2>
+    <form id="classroomBookingForm" action="/classroom-booking" method="POST">
+      <div class="mb-3">
+        <label for="classroomName" class="form-label">Classroom Name</label>
+        <select class="form-select" id="classroomName" name="classroomName" required>
+          <option value="" disabled selected>Select a classroom</option>
+          <option value="Room 101">LH1</option>
+          <option value="Room 102">LH2</option>
+          <option value="Room 201">LH3</option>
+          <option value="Room 202">LH4</option> 
+          <option value="Room 1011">LH5</option>
+          <option value="Room 10111">LH6</option>
+          <option value="Room 1012">LH7</option>
+          <option value="Room 10122">LH8</option>
+          <option value="Room 1013">LH9</option>
+          <option value="Room 1014">LH10</option>
+          <option value="Room 1015">LH11</option>
+          <option value="Room 10155">LH12</option>
+          <option value="Room 1016">LH13</option>
+          <option value="Room 1017">LH14</option>
+          <option value="Room 1018">LH15</option>
+          <option value="Room 1019">LH16</option>
+          <option value="Room 10188">LH17</option>
+          <option value="Room 10177">LH18</option>
+          <option value="Room 101666">LH19</option>
+          <option value="Room 101123">LH20</option>
+          <option value="Room 101a">LH21</option>
+          <option value="Room 101d">LH22</option>
+          <option value="Room 101f">LH23</option>
+          <option value="Room 101g">LH24</option>
+          <option value="Room 102ed">LH25</option>
+          <option value="Room 201vc">LH26</option>
+          <option value="Room 202erte">LH27</option> 
+          <option value="Room 1011324">LH28</option>
+          <option value="Room 101355">LH29</option>
+          <option value="Room 1014554">LH30</option>
+          <option value="Room 101455">LH32</option>
+          <option value="Room 101kk">LH33</option>
+          <option value="Room 101jjj">LH34</option>
+          <option value="Room 101hhh">LH134A</option>
+          <option value="Room 10hh1">LH34B</option>
+          <option value="Room 101gg">LH35</option>
+          <option value="Room 101yu7y">LH36</option>
+          <option value="Room 101yuy">LH37</option>
+          <option value="Room 101rtr">LH38</option>
+          <option value="Room 10ry6t1">LH39</option>
+          <option value="Room 101ty">LH40</option>
+          <option value="Room 10145">LH41</option>
+          <option value="Room 1015654">LH42</option>
+          <option value="Room 10165">LH43</option>
+          <option value="Room 105651">LH45</option>
+          <option value="Room 10jkj1">LH46</option>
+          <option value="Room 1017u6">LH47</option>
+          <option value="Room 101667">LH48</option>
+          <option value="Room 101hj">LH49</option>
+          <option value="Room 101ads">LH50</option>
+          <option value="Room 101sft">LH51</option>
+          <option value="Room 101rhytyj">LH52</option>
+          <option value="Room 101yjy">LH53</option>
+          <option value="Room 101tyt">LH54</option>
+          <option value="Room 101tyt">LH55</option>
+          <option value="Room 101tyt">MELH9</option>
+          <option value="Room 101tyt">MELH10</option>
+          <option value="Room 101ty">MELH12</option>
+          <option value="Room 101tyt">MELH13</option>
+          <option value="Room 101tyt">MELH14</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Booking Date</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+      <div class="mb-3">
+        <label for="startTime" class="form-label">Start Time</label>
+        <input type="time" class="form-control" id="startTime" name="startTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="endTime" class="form-label">End Time</label>
+        <input type="time" class="form-control" id="endTime" name="endTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="purpose" class="form-label">Purpose of Booking</label>
+        <textarea class="form-control" id="purpose" name="purpose" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Book Classroom</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

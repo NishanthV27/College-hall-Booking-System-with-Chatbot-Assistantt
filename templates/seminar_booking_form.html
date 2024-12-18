@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seminar Booking Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #eef2f7;
+      font-family: 'Arial', sans-serif;
+    }
+    .booking-form {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+    }
+    .booking-form h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #007bff;
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+    .form-control, .form-select {
+      border-radius: 5px;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="booking-form">
+    <h2>Seminar Booking Form</h2>
+    <form id="seminarBookingForm" action="/seminar-booking" method="POST">
+      <div class="mb-3">
+        <label for="seminarName" class="form-label">Seminar Name</label>
+        <select class="form-select" id="seminarName" name="seminarName" required>
+          <option value="" disabled selected>Select a seminar hall</option>
+          <option value="Seminar Hall 1">Seminar Hall 1</option>
+          <option value="Seminar Hall 2">Seminar Hall 2</option>
+          <option value="Seminar Hall 3">Seminar Hall 3</option>
+          <option value="Seminar Hall 4">Seminar Hall 4</option>
+          <option value="Seminar Hall 5">Seminar Hall 5</option>
+          <option value="Seminar Hall 6">Seminar Hall 6</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Booking Date</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+      <div class="mb-3">
+        <label for="startTime" class="form-label">Start Time</label>
+        <input type="time" class="form-control" id="startTime" name="startTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="endTime" class="form-label">End Time</label>
+        <input type="time" class="form-control" id="endTime" name="endTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="purpose" class="form-label">Purpose of Booking</label>
+        <textarea class="form-control" id="purpose" name="purpose" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Book Seminar</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Booking Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #eef2f7;
+      font-family: 'Arial', sans-serif;
+    }
+    .booking-form {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+    }
+    .booking-form h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #007bff;
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+    .form-control, .form-select {
+      border-radius: 5px;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="booking-form">
+    <h2>Lab Booking Form</h2>
+    <form id="labBookingForm" action="/lab-booking" method="POST">
+      <div class="mb-3">
+        <label for="labName" class="form-label">Lab Name</label>
+        <select class="form-select" id="labName" name="labName" required>
+          <option value="" disabled selected>Select a lab</option>
+          <option value="lab 101">Lab 1</option>
+          <option value="lab 102">Lab 2</option>
+          <option value="lab 103">Lab 3</option>
+          <option value="lab 104">Lab 4</option>
+          <option value="lab 105">Lab 5</option>
+          <option value="lab 106">Lab 6</option>
+          <option value="lab 107">Lab 7</option>
+          <option value="lab 108">Lab 8</option>
+          <option value="lab 109">Lab 9</option>
+          <option value="lab 110">Lab 10</option>
+          <option value="lab 111">Lab 11</option>
+          <option value="lab 112">Lab 12</option>
+          <option value="lab 113">Lab 13</option>
+          <option value="lab 114">Lab 14</option>
+          <option value="lab 115">Lab 15</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Booking Date</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+      <div class="mb-3">
+        <label for="startTime" class="form-label">Start Time</label>
+        <input type="time" class="form-control" id="startTime" name="startTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="endTime" class="form-label">End Time</label>
+        <input type="time" class="form-control" id="endTime" name="endTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="purpose" class="form-label">Purpose of Booking</label>
+        <textarea class="form-control" id="purpose" name="purpose" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Book Lab</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

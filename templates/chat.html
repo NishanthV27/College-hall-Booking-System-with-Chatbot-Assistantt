@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Hall Booking System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F0F4F8;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #13a009;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white !important;
+        }
+
+        .navbar-brand:hover,
+        .nav-link:hover {
+            color: #FFD700 !important;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(244, 246, 245, 0.934), rgba(251, 254, 255, 0.89)), url('https://source.unsplash.com/1600x900/?college,hall') no-repeat center center;
+            background-size: cover;
+            color: rgba(4, 7, 5, 0.688);
+            padding: 200px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 4rem; /* Increased font size */
+            font-weight: 700; /* Bold text */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0); /* More pronounced shadow */
+            letter-spacing: 2px; /* Space between letters */
+            line-height: 1.2; /* Adjust line height for better spacing */
+            text-transform: uppercase; /* Uppercase text */
+        }
+        
+        
+
+        .hero p {
+            font-size: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #FFD700;
+            border-color: #FFD700;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #FFB300;
+            color: #fff;
+        }
+
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .footer-text {
+            margin-bottom: 0;
+        }
+
+        .testimonials {
+            background: #e9ecef;
+            padding: 50px 0;
+            border-radius: 20px;
+        }
+
+        .testimonial-card {
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .faq-section {
+            padding: 50px 0;
+        }
+
+        .faq-card {
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-title {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .faq-title:hover {
+            color: #6c757d;
+        }
+
+        .contact-section {
+            padding: 50px 0;
+            background: #F7F9FC;
+        }
+
+        .contact-form {
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+
+        } 
+        .btn-primary {
+            background-color: #FFD700;
+            border-color: #FFD700;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #FFB300;
+            color: #fff;
+        }
+
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .footer-text {
+            margin-bottom: 0;
+        }
+
+        /* Chatbot Styles */
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-icon {
+            background-color: #FFD700;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .chat-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .chat-header {
+            background-color: #13a009;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-body {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .chat-footer {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin-right: 5px;
+        }
+
+        .chat-footer button {
+            background-color: #FFD700;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+        }
+      
+       
+           
+        </style>
+    </head>
+</head>
+
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <a class="navbar-brand" href="#">HallBooking</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Welcome to the College Hall Booking System</h1>
+            <p>Effortlessly book your halls for classes, events, and more!</p>
+            <a href="#services" class="btn btn-primary">Get Started</a>
+        </div>
+    </header> 
+    <body>
+
+        <!-- Existing content here -->
+    
+        <!-- Chatbot HTML -->
+        <div class="chatbot">
+            <div class="chatbot-icon" onclick="toggleChat()">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="chat-window" id="chatWindow">
+                <div class="chat-header">
+                    <span>Chat with Us</span>
+                    <button onclick="toggleChat()" style="background:none; border:none; color:white;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="chat-body" id="chatBody">
+                    <p><strong>Bot:</strong> Hi! How can I assist you today?</p>
+                </div>
+                <div class="chat-footer">
+                    <input type="text" id="chatInput" placeholder="Type a message..." onkeydown="if(event.key === 'Enter') sendMessage()">
+                    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Chatbot Script -->
+        <script>
+          
+                function toggleChat() {
+                    const chatWindow = document.getElementById("chatWindow");
+                    chatWindow.style.display = chatWindow.style.display === "none" ? "block" : "none";
+                }
+            
+                function sendMessage() {
+                    const input = document.getElementById("chatInput");
+                    const message = input.value.trim();
+                    if (message) {
+                        const chatBody = document.getElementById("chatBody");
+            
+                        // Display user message
+                        const userMessage = document.createElement("p");
+                        userMessage.innerHTML = "<strong>You:</strong> " + message;
+                        chatBody.appendChild(userMessage);
+            
+                        input.value = ""; // Clear input field
+            
+                        // Generate bot response based on message
+                        const botResponse = document.createElement("p");
+                        botResponse.innerHTML = "<strong>Bot:</strong> " + getBotResponse(message);
+                        chatBody.appendChild(botResponse);
+            
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    }
+                }
+            
+                function getBotResponse(message) {
+                    message = message.toLowerCase(); // Convert message to lowercase for easier matching
+            
+                    // 50 Responses Based on Various User Inquiries
+                    if (message.includes("classroom") || message.includes("lecture") || message.includes("class")) {
+                        return "To book a classroom, visit the 'Classroom Booking' section. Choose your preferred date and time, and reserve the room!";
+                    } else if (message.includes("lab") || message.includes("practical")) {
+                        return "For lab booking, go to the 'Lab Booking' section. You can select your desired lab and time slot for practical sessions.";
+                    } else if (message.includes("seminar") || message.includes("presentation") || message.includes("discussion")) {
+                        return "You can book a seminar hall via the 'Seminar Hall Booking' page. Select the hall, date, and time for your event!";
+                    } else if (message.includes("help") || message.includes("support")) {
+                        return "I'm here to help! You can ask about booking classrooms, labs, seminar halls, or anything else related to the system.";
+                    } else if (message.includes("available") || message.includes("free") || message.includes("availability")) {
+                        return "To check availability, go to the booking section for the relevant facility (classroom, lab, seminar hall) and select a date to view available slots.";
+                    } else if (message.includes("hours") || message.includes("open")) {
+                        return "Our booking system is available 24/7 online, and you can book any facility anytime based on availability.";
+                    } else if (message.includes("cancel") || message.includes("remove")) {
+                        return "To cancel a booking, please go to the 'My Bookings' section, select the booking you want to cancel, and click the 'Cancel' button.";
+                    } else if (message.includes("payment") || message.includes("charge") || message.includes("cost")) {
+                        return "The booking system does not charge for room reservations. All bookings are free of charge for students and faculty members.";
+                    } else if (message.includes("confirmation") || message.includes("booked") || message.includes("success")) {
+                        return "Once you've successfully booked a room, you will receive a confirmation email with all the details of your reservation.";
+                    } else if (message.includes("change") || message.includes("edit")) {
+                        return "If you need to modify your booking, go to the 'My Bookings' section and edit your reservation details.";
+                    } else if (message.includes("location") || message.includes("where")) {
+                        return "The locations of all classrooms, labs, and seminar halls are listed on the booking page. Each room has a detailed description with its location.";
+                    } else if (message.includes("size") || message.includes("capacity")) {
+                        return "You can view the capacity of each classroom, lab, or seminar hall in the booking details. Select a room to see how many people it can accommodate.";
+                    } else if (message.includes("no rooms") || message.includes("not available") || message.includes("full")) {
+                        return "Sorry, it looks like no rooms are available at that time. Please try another date or time.";
+                    } else if (message.includes("book again") || message.includes("reserve again")) {
+                        return "If you'd like to book a room again, you can follow the same process through the 'Booking' page.";
+                    } else if (message.includes("holiday") || message.includes("vacation")) {
+                        return "Booking is available throughout the year, including holidays. However, some rooms may have restricted availability during certain periods, so please check in advance.";
+                    } else if (message.includes("cancel booking") || message.includes("remove reservation")) {
+                        return "To cancel a reservation, head over to 'My Bookings,' select your booking, and click 'Cancel.'";
+                    } else if (message.includes("how to") || message.includes("procedure")) {
+                        return "To book a room, select the 'Booking' section, choose your facility, date, and time, and finalize your reservation.";
+                    } else if (message.includes("feedback") || message.includes("review")) {
+                        return "We appreciate your feedback! After your booking, feel free to leave a review to help us improve our services.";
+                    } else if (message.includes("contact") || message.includes("reach us")) {
+                        return "You can contact support through the 'Contact Us' page for any inquiries or issues related to bookings.";
+                    } else if (message.includes("staff") || message.includes("administrator")) {
+                        return "If you need assistance from the staff, please contact the administrative office or visit the 'Help' section on the website.";
+                    } else if (message.includes("user guide") || message.includes("tutorial")) {
+                        return "A user guide and tutorial are available in the 'Help' section, which explains how to use all features of the booking system.";
+                    } else if (message.includes("registration") || message.includes("sign up")) {
+                        return "To use the booking system, you need to register an account. Visit the 'Sign Up' page to create your account.";
+                    } else if (message.includes("account") || message.includes("login")) {
+                        return "To log in to the system, go to the 'Login' page and enter your credentials. If you don't have an account, you can register there.";
+                    } else if (message.includes("forgot") || message.includes("password")) {
+                        return "If you forgot your password, click on the 'Forgot Password' link on the login page to reset it.";
+                    } else if (message.includes("user") || message.includes("profile")) {
+                        return "You can manage your profile and booking history by visiting the 'My Profile' section.";
+                    } else if (message.includes("system") || message.includes("software")) {
+                        return "This is an online booking system designed to help you reserve classrooms, labs, and seminar halls. It's fast, easy, and completely free!";
+                    } else if (message.includes("maintenance") || message.includes("update")) {
+                        return "Our system is periodically updated for improved performance. You can always check the status of any updates on the 'System Status' page.";
+                    } else if (message.includes("troubleshoot") || message.includes("issue")) {
+                        return "If you're encountering issues, please visit our 'Troubleshooting' section for solutions or contact our support team.";
+                    } else if (message.includes("thank") || message.includes("thanks")) {
+                        return "You're welcome! If you have any other questions, feel free to ask.";
+                    } else if (message.includes("hello") || message.includes("hi")) {
+                        return "Hello! How can I assist you today? Feel free to ask about booking rooms or anything else.";
+                    } else if (message.includes("goodbye") || message.includes("bye")) {
+                        return "Goodbye! Have a great day, and feel free to come back if you need any further assistance.";
+                    } else if (message.includes("system error") || message.includes("bug")) {
+                        return "Sorry for the inconvenience! If you're experiencing a system error, please report it through the 'Support' page.";
+                    } else if (message.includes("assistance") || message.includes("help me")) {
+                        return "Sure! I'm here to help. Just let me know what you need assistance with, and I'll guide you through it.";
+                    } else if (message.includes("hours") || message.includes("availability hours")) {
+                        return "Booking hours are available 24/7, but some facilities may have specific operational hours. Check the facility details before booking.";
+                    } else if (message.includes("booking system") || message.includes("reservation system")) {
+                        return "Our booking system is online and allows you to reserve classrooms, labs, and seminar halls at any time. Just choose the facility, date, and time.";
+                    } else if (message.includes("holiday booking") || message.includes("book during holiday")) {
+                        return "Yes, you can book rooms during holidays! Availability may vary, so check the specific dates in the booking section.";
+                    } else {
+                        return "I'm sorry, I didn't understand that. Could you please rephrase your question or provide more details?";
+                    }
+                }
+            </script>
+            
+    
+        <!-- Bootstrap and jQuery scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+
+    <!-- About Section -->
+    <section id="about" class="py-5 text-center">
+        <div class="container">
+            <h2>About Us</h2>
+            <p class="lead">Our platform is designed to provide a seamless booking experience for all college facilities.</p>
+        </div>
+    </section> 
+
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card text-center p-4">
+                        <i class="fas fa-chalkboard fa-3x mb-3"></i>
+                        <h5 class="card-title">Classroom Booking</h5>
+                        <p class="card-text">Reserve classrooms for your lectures and workshops easily.</p>
+                        <a href="http://127.0.0.1:5000/classroom-booking"class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card text-center p-4">
+                        <i class="fas fa-vial fa-3x mb-3"></i>
+                        <h5 class="card-title">Lab Booking</h5>
+                        <p class="card-text">Access well-equipped labs for your practical sessions.</p>
+                        <a href="http://127.0.0.1:5000/lab-booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card text-center p-4">
+                        <i class="fas fa-comments fa-3x mb-3"></i>
+                        <h5 class="card-title">Seminar Hall Booking</h5>
+                        <p class="card-text">Book seminar halls for discussions and presentations.</p>
+                        <a href="http://127.0.0.1:5000/seminar-booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 testimonials">
+        <div class="container">
+            <h2 class="text-center">What Our Users Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card testimonial-card">
+                        <div class="card-body">
+                            <p class="card-text">"This system has made booking halls so much easier! Highly recommend!"</p>
+                            <footer class="blockquote-footer">Student A</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card testimonial-card">
+                        <div class="card-body">
+                            <p class="card-text">"A seamless experience! I love how easy it is to find and book facilities."</p>
+                            <footer class="blockquote-footer">Student B</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card testimonial-card">
+                        <div class="card-body">
+                            <p class="card-text">"Great platform for managing events and classes. It's user-friendly!"</p>
+                            <footer class="blockquote-footer">Student C</footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faq" class="py-5 faq-section">
+        <div class="container">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card faq-card">
+                        <div class="card-body">
+                            <h5 class="faq-title" data-toggle="collapse" data-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                                How do I book a hall?
+                            </h5>
+                            <div class="collapse" id="faq1">
+                                <p class="card-text">You can book a hall by selecting the desired service and filling out the booking form.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card faq-card">
+                        <div class="card-body">
+                            <h5 class="faq-title" data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                Can I cancel my booking?
+                            </h5>
+                            <div class="collapse" id="faq2">
+                                <p class="card-text">Yes, you can cancel your booking by logging into your account and selecting the booking to cancel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card faq-card">
+                        <div class="card-body">
+                            <h5 class="faq-title" data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                Are there any fees for booking?
+                            </h5>
+                            <div class="collapse" id="faq3">
+                                <p class="card-text">Booking fees may vary based on the type of hall. Please check the details on the booking page.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card faq-card">
+                        <div class="card-body">
+                            <h5 class="faq-title" data-toggle="collapse" data-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                What if I have more questions?
+                            </h5>
+                            <div class="collapse" id="faq4">
+                                <p class="card-text">Feel free to reach out through our contact section for further assistance!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 contact-section">
+        <div class="container">
+            <h2 class="text-center">Contact Us</h2>
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="footer-text">©copyrights Developed by NISHANTH V.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
